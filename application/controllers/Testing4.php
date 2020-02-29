@@ -35,14 +35,76 @@ class Testing4 extends CI_Controller
         //$this->unit->run($output,$expect,$test_name);
         $this->unit->run($true,$expected,$test_name);
 
-        $test_name = 'tes loop3';
-        $this->unit->run($this->loop3(null),null,$test_name);
+        
+        $test_name = 'tes ifelse_1';
+        $this->unit->run($this->ifelse(null,'carl'),'carl',$test_name);
 
-        $test_name = 'tes loop 2';
+        $test_name = 'tes ifelse_2';
+        $this->unit->run($this->ifelse('yung',null),'yung',$test_name);
+
+        $test_name = 'tes ifelse_3';
+        $this->unit->run($this->ifelse(null,null),"Something wrong. Please contact US",$test_name);
+
+        $test_name = 'tes ifelse_4';
+        $this->unit->run($this->ifelse('yung','carl'),'yung',$test_name);
+
+        $test_name = 'tes ifelse2_1';
+        $this->unit->run($this->ifelse2(null),'dia bukan teman saya',$test_name);
+
+        $test_name = 'tes ifelse2_2';
+        $this->unit->run($this->ifelse2('andi'),"dia adalah teman saya",$test_name);
+
+        $test_name = 'tes ifelse2_3';
+        $this->unit->run($this->ifelse2('john'),"dia bukan teman saya",$test_name);
+
+        $test_name = 'tes ifelse3_1';
+        $this->unit->run($this->ifelse3('sapi','kambing','kuda'),'sapi',$test_name);
+
+        $test_name = 'tes ifelse3_2';
+        $this->unit->run($this->ifelse3('sapi','kambing',null),'sapi',$test_name);
+
+        $test_name = 'tes ifelse3_3';
+        $this->unit->run($this->ifelse3('sapi',null,null),'sapi',$test_name);
+
+        $test_name = 'tes ifelse3_4';
+        $this->unit->run($this->ifelse3(null,'kambing','kuda'),'kambing',$test_name);
+
+        $test_name = 'tes ifelse3_5';
+        $this->unit->run($this->ifelse3(null,'kambing',null),'kambing',$test_name);
+
+        $test_name = 'tes ifelse3_6';
+        $this->unit->run($this->ifelse3(null,null,'kuda'),'kuda',$test_name);
+
+        $test_name = 'tes ifelse3_7';
+        $this->unit->run($this->ifelse3('sapi',null,'kuda'),'sapi',$test_name);
+
+        $test_name = 'tes ifelse3_8';
+        $this->unit->run($this->ifelse3(null,null,null),"Something wrong. Please contact US",$test_name);
+
+        $test_name = 'tes ifelse4_1';
+        $this->unit->run($this->ifelse4('d'),'',$test_name);
+
+        $test_name = 'tes ifelse4_2';
+        $this->unit->run($this->ifelse4(null),'',$test_name);
+
+        $test_name = 'tes loop1_1';
+        $this->unit->run($this->loop1(1),2048,$test_name);
+
+        $test_name = 'tes loop1_2';
+        $this->unit->run($this->loop1(null),null,$test_name);
+
+        $test_name = 'tes loop2_1';
         $arr = array(0,1,2,3,4);
         $this->unit->run($this->loop2($arr),4,$test_name);
 
+        $test_name = 'tes loop2_2';
+        $this->unit->run($this->loop2($null),0,$test_name);
 
+        $test_name = 'tes loop3_1';
+        $this->unit->run($this->loop3(null),null,$test_name);
+
+        $test_name = 'tes loop3_2';
+        $this->unit->run($this->loop3(null),null,$test_name);
 
         echo $this->unit->report();
     }
